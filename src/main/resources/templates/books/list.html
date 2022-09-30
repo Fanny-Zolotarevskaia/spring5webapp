@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org"> <!-- The addition of the th tag that is going to reference the thymeleaf namespace
+and gives he user Thymeleaf extentsion to the xmln document and that is how thymeleaf is going to work through attributes out of that xmln namespace which tells thymeleaf to do
+stuff-->
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Framework Guru</title>
+</head>
+<body>
+<h1>Book List</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Publisher</th>
+  </tr>
+  <tr th:each="book : ${books}"> <!-- Creating a Thymeleaf iterator that, by calling on thymeleaf each we set up this iteration and we are saying that for each book from the
+  books attribute defined in our model: book : ${books}-->
+    <td th:text="${book.id}">123</td> <!-- Call on the element that we want to show -->
+    <td th:text="${book.title}">Spring in Action</td>
+    <td th:text="${book.publisher.name}"></td>
+  </tr>
+</table>
+
+</body>
+</html>
